@@ -1,10 +1,12 @@
 import "./App.css";
 import PageFooter from "./components/pageFooter";
+import ListsContainer from "./components/listsContainer";
 
 function App() {
   return (
     <div className="App">
-      <PageFooter></PageFooter>
+      <ListsContainer />
+      <PageFooter />
     </div>
   );
 }
