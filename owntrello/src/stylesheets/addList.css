@@ -1,0 +1,28 @@
+.addListContainer {
+    background-color: rgb(235, 236, 240);
+    border-radius: 3px;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-gap: 10px;
+    height: max-content;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.addListTitle {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 5px;
+}
+
+.addButton {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin-left: 140px;
+}

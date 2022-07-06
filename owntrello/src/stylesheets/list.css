@@ -10,16 +10,41 @@
 
 .listTitle {
     font-weight: bold;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 5px;
 }
 
-.card {
-    background-color: white;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
-    padding: 10px;
+.subGrid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 150px;
 }
 
-.add-card {
+.button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 3px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.addTask {
     padding-top: 10px;
     padding-bottom: 5px;
+    font-weight: 500;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.addTaskButton {
+    margin-left: 100px;
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
