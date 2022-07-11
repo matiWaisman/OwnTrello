@@ -5,11 +5,13 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 import { GrAdd } from "react-icons/gr";
 
-const list = () => {
+const List = (props) => {
+  const { list } = props;
+
   return (
     <div className="list">
       <div className="listTitle">
-        <div>List title</div>
+        <div>{list}</div>
         <div></div>
         <div className="subGrid">
           <button className="button">
@@ -32,4 +34,4 @@ const list = () => {
   );
 };
 
-export default list;
+export default List;

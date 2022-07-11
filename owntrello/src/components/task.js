@@ -1,7 +1,7 @@
 import React from "react";
 import "../stylesheets/task.css";
 
-const task = () => {
+const Task = () => {
   return (
     <>
       <div className="task">Task 1</div>
@@ -13,4 +13,4 @@ const task = () => {
   );
 };
 
-export default task;
+export default Task;
