@@ -48,3 +48,16 @@
     cursor: pointer;
     outline: inherit;
 }
+
+.field {
+    border-width: 0px;
+    border: none;
+    outline: none;
+}
+
+.addListTitle {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 5px;
+}
