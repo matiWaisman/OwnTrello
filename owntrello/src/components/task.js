@@ -4,7 +4,12 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 
 const Task = (props) => {
-  const { taskName, iterator } = props;
+  const { taskName, iterator, deleteTask } = props;
+
+  const handleDeleteClick = () => {
+    deleteTask(iterator);
+  };
+
   return (
     <>
       <div className="task">
@@ -14,7 +19,7 @@ const Task = (props) => {
             <MdModeEditOutline />
           </button>
           <button className="button">
-            <FaTrashAlt />
+            <FaTrashAlt onClick={handleDeleteClick} />
           </button>
         </div>
       </div>

@@ -10,8 +10,10 @@ const ListsContainer = () => {
     setListsArray([...listsArray, listName]);
   };
 
-  const deleteList = (listName) => {
-    setListsArray(listsArray.filter((list) => list !== listName));
+  const deleteList = (listPosition) => {
+    var copyOfLists = listsArray;
+    copyOfLists.splice(listPosition, 1);
+    setListsArray([...copyOfLists]);
   };
 
   const editList = (position, newName) => {

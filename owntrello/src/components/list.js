@@ -20,7 +20,7 @@ const List = (props) => {
   };
 
   const handleDeleteClick = () => {
-    deleteList(listName);
+    deleteList(iterator);
   };
 
   const editClick = (e) => {
@@ -36,6 +36,12 @@ const List = (props) => {
       editList(iterator, newListName);
       setNewListName("");
     }
+  };
+
+  const deleteTask = (taskPosition) => {
+    var copyOfTasks = tasksArray;
+    copyOfTasks.splice(taskPosition, 1);
+    setTasksArray([...copyOfTasks]);
   };
 
   return (
@@ -67,7 +73,7 @@ const List = (props) => {
         </div>
       </div>
       {tasksArray.map((taskName, iterator) => (
-        <Task taskName={taskName} iterator={iterator} />
+        <Task taskName={taskName} iterator={iterator} deleteTask={deleteTask} />
       ))}
       <AddInput addInput={addTask} placeholder="Add a new task" />
     </div>
