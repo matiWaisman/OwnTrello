@@ -13,12 +13,12 @@
     display: grid;
     grid-template-columns: auto auto auto;
     margin: 5px;
+    white-space: initial;
 }
 
 .subGrid {
     display: grid;
     grid-template-columns: auto auto auto;
-    margin-left: 150px;
 }
 
 .button {
@@ -42,4 +42,9 @@
     display: grid;
     grid-template-columns: auto auto auto;
     margin: 5px;
+}
+
+.listName {
+    word-wrap: break-word;
+    width: 12rem;
 }

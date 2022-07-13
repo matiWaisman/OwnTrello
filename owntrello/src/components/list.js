@@ -55,9 +55,8 @@ const List = (props) => {
             </form>
           </div>
         ) : (
-          <div>{listName}</div>
+          <div className="listName">{listName}</div>
         )}
-        <div></div>
         <div className="subGrid">
           <button className="button" onClick={editClick}>
             <MdModeEditOutline />
