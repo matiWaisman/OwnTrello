@@ -3,12 +3,17 @@ import "../stylesheets/list.css";
 import Task from "./task";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
-import { GrAdd } from "react-icons/gr";
+import AddInput from "./addInput";
 
 const List = (props) => {
   const { listName, iterator, deleteList, editList } = props;
   const [isInEdit, setIsInEdit] = useState(false);
   const [newListName, setNewListName] = useState("");
+  const [tasksArray, setTasksArray] = useState([]);
+
+  const addTask = (taskName) => {
+    setTasksArray([...tasksArray, taskName]);
+  };
 
   const handleInputChange = (e) => {
     setNewListName(e.target.value);
@@ -62,14 +67,10 @@ const List = (props) => {
           </button>
         </div>
       </div>
-      <Task />
-      <div className="addTask">
-        <div>Add a new task</div>
-        <div></div>
-        <button className="addTaskButton">
-          <GrAdd />
-        </button>
-      </div>
+      {tasksArray.map((taskName, iterator) => (
+        <Task taskName={taskName} iterator={iterator} />
+      ))}
+      <AddInput addInput={addTask} placeholder="Add a new task" />
     </div>
   );
 };

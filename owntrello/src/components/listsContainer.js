@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../stylesheets/listsContainer.css";
 import List from "./list";
-import AddList from "./addList";
+import AddList from "./addInput";
 
 const ListsContainer = () => {
   const [listsArray, setListsArray] = useState([]);
@@ -31,7 +31,9 @@ const ListsContainer = () => {
             editList={editList}
           />
         ))}
-        <AddList addList={addList} />
+        <div className="addListContainer">
+          <AddList addInput={addList} placeholder="Add a new list" />
+        </div>
       </div>
     </div>
   );

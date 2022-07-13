@@ -1,15 +1,4 @@
-.addListContainer {
-    background-color: rgb(235, 236, 240);
-    border-radius: 3px;
-    display: grid;
-    grid-auto-rows: max-content;
-    grid-gap: 10px;
-    height: max-content;
-    padding: 10px;
-    font-weight: bold;
-}
-
-.addListTitle {
+.addInputTitle {
     font-weight: bold;
     display: grid;
     grid-template-columns: auto auto auto;

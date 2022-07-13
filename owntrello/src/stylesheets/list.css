@@ -31,24 +31,6 @@
     outline: inherit;
 }
 
-.addTask {
-    padding-top: 10px;
-    padding-bottom: 5px;
-    font-weight: 500;
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
-
-.addTaskButton {
-    margin-left: 100px;
-    background: none;
-    color: inherit;
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
-
 .field {
     border-width: 0px;
     border: none;

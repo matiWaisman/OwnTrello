@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from "react";
-import "../stylesheets/addList.css";
+import "../stylesheets/addInput.css";
 import { GrAdd } from "react-icons/gr";
-const AddList = (props) => {
-  const { addList } = props;
-  const [listName, setListName] = useState("");
+const AddInput = (props) => {
+  const { addInput, placeholder } = props;
+  const [inputName, setInputName] = useState("");
 
   const handleInputChange = (e) => {
-    setListName(e.target.value);
+    setInputName(e.target.value);
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-    if (listName !== "") {
-      addList(listName);
-      setListName("");
+    if (inputName !== "") {
+      addInput(inputName);
+      setInputName("");
     }
   };
 
   return (
-    <div className="addListContainer">
+    <>
       <form onSubmit={submitForm}>
-        <div className="addListTitle">
+        <div className="addInputTitle">
           <input
             type="text"
             className="field"
-            placeholder="Add a new list"
+            placeholder={placeholder}
             name="name"
             onChange={handleInputChange}
-            value={listName}
+            value={inputName}
           />
           <div></div>
           <button className="addButton" type="submit">
@@ -35,8 +35,8 @@ const AddList = (props) => {
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 
-export default AddList;
+export default AddInput;
