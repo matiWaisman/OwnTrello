@@ -1,0 +1,17 @@
+.editContainer {
+    font: Verdana;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 5px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    padding: 9px;
+}
+
+.editField {
+    border-width: 0px;
+    border: none;
+    outline: none;
+    width: 12rem;
+}

@@ -16,10 +16,10 @@ const ListsContainer = () => {
     setListsArray([...copyOfLists]);
   };
 
-  const editList = (position, newName) => {
-    var newArray = listsArray.slice();
-    newArray[position] = newName;
-    setListsArray(newArray);
+  const editList = (listPosition, newName) => {
+    var copyOfLists = listsArray;
+    copyOfLists[listPosition] = newName;
+    setListsArray([...copyOfLists]);
   };
 
   return (
