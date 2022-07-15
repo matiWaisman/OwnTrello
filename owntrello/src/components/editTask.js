@@ -18,9 +18,9 @@ const EditTask = (props) => {
   return (
     <>
       <form onSubmit={submitForm}>
-        <div className="editContainer">
+        <div className="editTaskContainer">
           <input
-            className="editField"
+            className="editTaskField"
             type="text"
             placeholder={placeholder}
             onChange={handleInputChange}

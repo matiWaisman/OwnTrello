@@ -1,0 +1,12 @@
+.editListContainer {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 5px;
+    white-space: initial;
+}
+
+.editListField {
+    word-wrap: break-word;
+    width: 12rem;
+}

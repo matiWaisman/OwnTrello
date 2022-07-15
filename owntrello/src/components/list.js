@@ -42,26 +42,25 @@ const List = (props) => {
 
   return (
     <div className="list">
-      <div className="listTitle">
-        {isInEdit ? (
-          <EditList
-            handleEditListClick={handleEditListClick}
-            placeholder={listName}
-          />
-        ) : (
-          <>
-            <div className="listName">{listName}</div>
-            <div className="subGrid">
-              <button className="button" onClick={handleEditListClick}>
-                <MdModeEditOutline />
-              </button>
-              <button className="button" onClick={handleDeleteClick}>
-                <FaTrashAlt />
-              </button>
-            </div>
-          </>
-        )}
-      </div>
+      {isInEdit ? (
+        <EditList
+          handleEditListClick={handleEditListClick}
+          placeholder={listName}
+        />
+      ) : (
+        <div className="listTitle">
+          <div className="listName">{listName}</div>
+          <div className="subGrid">
+            <button className="button" onClick={handleEditListClick}>
+              <MdModeEditOutline />
+            </button>
+            <button className="button" onClick={handleDeleteClick}>
+              <FaTrashAlt />
+            </button>
+          </div>
+        </div>
+      )}
+
       {tasksArray.map((taskName, iterator) => (
         <Task
           taskName={taskName}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdModeEditOutline } from "react-icons/md";
-import "../stylesheets/editTask.css";
+import "../stylesheets/editList.css";
 
 const EditList = (props) => {
   const { handleEditListClick, placeholder } = props;
@@ -17,9 +17,9 @@ const EditList = (props) => {
   };
   return (
     <form onSubmit={submitForm}>
-      <div className="editContainer">
+      <div className="editListContainer">
         <input
-          className="editField"
+          className="editListField"
           type="text"
           placeholder={placeholder}
           onChange={handleInputChange}
