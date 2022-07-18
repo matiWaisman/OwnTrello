@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../stylesheets/list.css";
 import Task from "./task";
-import EditList from "./editList";
+import Edit from "./edit";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 import AddInput from "./addInput";
 
 const List = (props) => {
-  const { listName, iterator, deleteList, editList } = props;
+  const {
+    listName,
+    listIterator,
+    deleteList,
+    editList,
+    listIteratorToDeleteTask,
+    setListIteratorToDeleteTask,
+    taskIteratorToDelete,
+    setTaskIteratorToDelete,
+  } = props;
   const [isInEdit, setIsInEdit] = useState(false);
   const [tasksArray, setTasksArray] = useState([]);
 
@@ -16,13 +25,13 @@ const List = (props) => {
   };
 
   const handleDeleteClick = () => {
-    deleteList(iterator);
+    deleteList(listIterator);
   };
 
   const handleEditListClick = (newName) => {
     if (isInEdit === true) {
       if (newName !== "") {
-        editList(iterator, newName);
+        editList(listIterator, newName);
       }
     }
     setIsInEdit(!isInEdit);
@@ -40,12 +49,39 @@ const List = (props) => {
     setTasksArray([...copyOfTasks]);
   };
 
+  const dragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const dragDrop = (e) => {
+    let transferedTodoName = e.dataTransfer.getData("taskName");
+    let transferedTodoId = e.dataTransfer.getData("taskId");
+    let transferedListId = e.dataTransfer.getData("listId");
+    addTask(transferedTodoName);
+    setListIteratorToDeleteTask(...transferedListId);
+    setTaskIteratorToDelete(...transferedTodoId);
+  };
+
+  useEffect(() => {
+    if (listIteratorToDeleteTask == listIterator) {
+      deleteTask(taskIteratorToDelete);
+      setListIteratorToDeleteTask(-1);
+      setTaskIteratorToDelete(-1);
+    }
+  }, [listIteratorToDeleteTask]);
+
   return (
-    <div className="list">
+    <div
+      className="list"
+      droppable
+      onDragOver={(e) => dragOver(e)}
+      onDrop={(e) => dragDrop(e)}
+    >
       {isInEdit ? (
-        <EditList
-          handleEditListClick={handleEditListClick}
+        <Edit
+          handleEditClick={handleEditListClick}
           placeholder={listName}
+          isInEditTask={false}
         />
       ) : (
         <div className="listTitle">
@@ -61,12 +97,14 @@ const List = (props) => {
         </div>
       )}
 
-      {tasksArray.map((taskName, iterator) => (
+      {tasksArray.map((taskName, tasksIterator) => (
         <Task
           taskName={taskName}
-          iterator={iterator}
+          tasksIterator={tasksIterator}
           deleteTask={deleteTask}
           editTask={editTask}
+          listName={listName}
+          listIterator={listIterator}
         />
       ))}
       <AddInput addInput={addTask} placeholder="Add a new task" />

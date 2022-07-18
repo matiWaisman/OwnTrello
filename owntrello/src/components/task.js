@@ -2,31 +2,47 @@ import React, { useState } from "react";
 import "../stylesheets/task.css";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
-import EditTask from "./editTask";
+import Edit from "./edit";
 
 const Task = (props) => {
-  const { taskName, iterator, deleteTask, editTask } = props;
+  const { taskName, tasksIterator, deleteTask, editTask, listIterator } = props;
   const [isInEdit, setIsInEdit] = useState(false);
 
   const handleDeleteClick = () => {
-    deleteTask(iterator);
+    deleteTask(tasksIterator);
   };
 
   const handleEditClick = (newName) => {
     if (isInEdit === true) {
       if (newName !== "") {
-        editTask(iterator, newName);
+        editTask(tasksIterator, newName);
       }
     }
     setIsInEdit(!isInEdit);
   };
 
+  const dragStarted = (e, name, taskId, listId) => {
+    e.dataTransfer.setData("taskName", name);
+    e.dataTransfer.setData("taskId", taskId);
+    e.dataTransfer.setData("listId", listId);
+  };
+
   return (
     <>
       {isInEdit ? (
-        <EditTask handleEditClick={handleEditClick} placeholder={taskName} />
+        <Edit
+          handleEditClick={handleEditClick}
+          placeholder={taskName}
+          isEditTask={true}
+        />
       ) : (
-        <div className="task">
+        <div
+          className="task"
+          draggable
+          onDragStart={(e) =>
+            dragStarted(e, taskName, tasksIterator, listIterator)
+          }
+        >
           <div className="taskName">{taskName}</div>
           <div className="subGrid">
             <button className="button" onClick={handleEditClick}>

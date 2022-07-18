@@ -5,6 +5,8 @@ import AddList from "./addInput";
 
 const ListsContainer = () => {
   const [listsArray, setListsArray] = useState([]);
+  const [listIteratorToDeleteTask, setListIteratorToDeleteTask] = useState(-1);
+  const [taskIteratorToDelete, setTaskIteratorToDelete] = useState(-1);
 
   const addList = (listName) => {
     setListsArray([...listsArray, listName]);
@@ -25,12 +27,16 @@ const ListsContainer = () => {
   return (
     <div className="base">
       <div className="lists">
-        {listsArray.map((listName, iterator) => (
+        {listsArray.map((listName, listIterator) => (
           <List
             listName={listName}
-            iterator={iterator}
+            listIterator={listIterator}
             deleteList={deleteList}
             editList={editList}
+            listIteratorToDeleteTask={listIteratorToDeleteTask}
+            setListIteratorToDeleteTask={setListIteratorToDeleteTask}
+            taskIteratorToDelete={taskIteratorToDelete}
+            setTaskIteratorToDelete={setTaskIteratorToDelete}
           />
         ))}
         <div className="addListContainer">
